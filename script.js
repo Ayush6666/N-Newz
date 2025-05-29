@@ -1,4 +1,4 @@
-const API_KEY = '777bd21504694a1898f19e9bfd864db1';
+const API_KEY = 'ea730fd2bcec33ecf02a8b0ef6feb33a';
 const newsContainer = document.getElementById('news-container');
 const loading = document.getElementById('loading');
 const input = document.getElementById('categoryInput');
@@ -45,9 +45,9 @@ async function fetchNews(reset = false) {
   let url = '';
 
   if (mode === 'search') {
-    url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(value)}&pageSize=10&page=${page}&apiKey=${API_KEY}`;
+    url = `https://gnews.io/api/v4/search?q=${encodeURIComponent(value)}&lang=en&max=10&page=${page}&token=${API_KEY}`;
   } else {
-    url = `https://newsapi.org/v2/top-headlines?country=us&category=${value}&pageSize=10&page=${page}&apiKey=${API_KEY}`;
+    url = `https://gnews.io/api/v4/top-headlines?topic=${value}&lang=en&max=10&page=${page}&token=${API_KEY}`;
   }
 
   try {
@@ -61,7 +61,7 @@ async function fetchNews(reset = false) {
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
-          <img src="${article.urlToImage || 'https://via.placeholder.com/400x200'}" alt="">
+          <img src="${article.image || 'https://via.placeholder.com/400x200'}" alt="">
           <h2>${article.title}</h2>
           <p>${article.description || 'No description available.'}</p>
           <a href="${article.url}" target="_blank">Read More &rarr;</a>
@@ -112,5 +112,10 @@ window.addEventListener('DOMContentLoaded', () => {
   if (mode === 'category') setActiveCategory(value);
   else input.value = value;
   fetchNews(true);
-}
-)
+});
+
+window.addEventListener('scroll', () => {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+    fetchNews();
+  }
+});

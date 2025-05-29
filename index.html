@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Viewer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>NOTHING NEWZ</h1>
+      <p class="copyright">
+        ©Indi-Codes 2025
+        <br>
+        Inspiration:NothingOS
+      </p>
+      <nav>
+        <div class="category-buttons">
+          <button data-category="general">General</button>
+          <button data-category="technology">Technology</button>
+          <button data-category="sports">Sports</button>
+          <button data-category="business">Business</button></div>
+          <div class="category-buttons">
+          <button data-category="entertainment">Entertainment</button>
+          <button data-category="science">Science</button>
+          <button data-category="health">Health</button>
+        </div>
+        </br>
+        </br>
+        <div class="controls">
+          <input id="categoryInput" class="categoryInput"align="center"type="text" placeholder="Search news..." />
+            </div>
+      </nav>
+    </header>
+    <br>
+    <main>
+      <div id="news-container"></div>
+      <div id="loading">Loading...</div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

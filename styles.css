@@ -1,0 +1,119 @@
+:root { 
+  --bg-color-light: #ffffff; 
+  --text-color-light: #000000; 
+  --bg-color-dark: #0e0e0e; 
+  --text-color-dark: #ffffff; 
+  --accent-color: #999999; 
+  --transition-speed: 0.3s; }
+@font-face {
+  font-family:ndot;
+  src: url(/Ndot-57.otf);
+}
+body { 
+  text-align:center;
+  -webkit-tap-highlight-color: transparent;
+  align-items:centre;
+  margin:auto; 
+  padding: 1rem; 
+  font-family: 'ndot'; 
+  background-color: var(--bg-color-light); 
+  color: var(--text-color-light); 
+  transition: background-color var(--transition-speed)
+  color var(--transition-speed);
+
+}
+header{
+  border:black;
+}
+body.dark { background-color: var(--bg-color-dark); color: var(--text-color-dark); }
+
+nav { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 1rem; 
+  margin:auto; }
+
+nav button { 
+    padding: 0.5rem 1.2rem; 
+    background: transparent; border: 1px solid var(--accent-color); 
+    color: inherit; border-radius: 50px; 
+    cursor: pointer; transition: background-color var(--transition-speed), 
+    color var(--transition-speed), 
+    border var(--transition-speed); }
+
+nav button:hover, nav button.active { 
+  background-color: var(--text-color-light); 
+  color: var(--bg-color-light); }
+
+body.dark nav button:hover, body.dark nav button.active { 
+  background-color: var(--text-color-dark); 
+  color: var(--bg-color-dark); }
+
+categoryInput { 
+}
+  
+
+#categoryInput:focus { 
+  outline: none; 
+  border-color: var(--text-color-light); }
+
+.card { 
+  background-color: inherit; 
+  border: 1px solid var(--accent-color); 
+  border-radius: 16px; 
+  margin-bottom: 1.5rem; 
+  overflow: hidden; 
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed); }
+
+.card:hover { transform: translateY(-4px); 
+   box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+
+.card img { 
+  width: 100%; 
+  height: 200px; 
+  object-fit: cover; display: block; }
+
+.card h2 { 
+  font-size: 1.2rem; 
+  margin: 0.75rem 1rem 0.25rem; }
+
+.card p { 
+  font-size: 0.95rem; 
+  margin: 0 1rem 1rem; 
+  color: var(--accent-color); }
+
+.card a { 
+  display: block; 
+  padding: 0.5rem 1rem; 
+  text-align: right; 
+  font-weight: bold; 
+  color: inherit; 
+  text-decoration: none; }
+
+.card a:hover { text-decoration: underline; }
+
+#loading { 
+  text-align: center; 
+  font-size: 1rem; 
+  padding: 1rem; 
+  color: var(--accent-color); }
+  
+.controls{
+  text-align:center;
+  margin:auto;
+}
+.categoryInput{
+  padding:10px;
+  border-radius:15px;
+  border:1px solid black;
+  text-align:center;
+  
+}
+.category-buttons{
+  margin:auto;
+  text-align:center;
+}
+.copyright {
+  text-align:center;
+  font-size:5px;
+}

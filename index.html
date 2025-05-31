@@ -7,34 +7,38 @@
   </head>
   <body>
     <header>
+              <label class="switch" for="themeToggle">
+          <input id="themeToggle" type="checkbox">
+          <span class="slider"></span>
+        </label>
+      <div class="head">
       <h1>NOTHING NEWZ</h1>
+      </div>
       <p class="copyright">
-        ©Indi-Codes 2025
+        ©Indi-Codes 2025 v1.1
         <br>
-        Inspiration:NothingOS
+        Proudly Open Source
       </p>
       <nav>
+       <div class="controls">
+          <input id="categoryInput" class="categoryInput" align="center" type="text" placeholder="Search news..." /> </div>
         <div class="category-buttons">
-          <button data-category="general">General</button>
+          <button id="top"data-category="top">Headlines</button>
           <button data-category="technology">Technology</button>
           <button data-category="sports">Sports</button>
-          <button data-category="business">Business</button></div>
-          <div class="category-buttons">
+          <button data-category="business">Business</button>
           <button data-category="entertainment">Entertainment</button>
           <button data-category="science">Science</button>
           <button data-category="health">Health</button>
         </div>
-        </br>
-        </br>
-        <div class="controls">
-          <input id="categoryInput" class="categoryInput"align="center"type="text" placeholder="Search news..." />
-            </div>
       </nav>
     </header>
     <br>
     <main>
       <div id="news-container"></div>
-      <div id="loading">Loading...</div>
+      <div id="loading">
+       Let Us Cook..
+      </div>
     </main>
     <script src="script.js"></script>
   </body>

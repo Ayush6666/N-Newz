@@ -20,13 +20,11 @@ body {
   color: var(--text-color-light); 
   transition: background-color var(--transition-speed)
   color var(--transition-speed);
-
+  transition: background-color 0.3s ease-in, color 0.3s ease-in;
 }
 header{
   border:black;
 }
-body.dark { background-color: var(--bg-color-dark); color: var(--text-color-dark); }
-
 nav { 
   display: flex; 
   flex-wrap: wrap; 
@@ -49,10 +47,6 @@ body.dark nav button:hover, body.dark nav button.active {
   background-color: var(--text-color-dark); 
   color: var(--bg-color-dark); }
 
-categoryInput { 
-}
-  
-
 #categoryInput:focus { 
   outline: none; 
   border-color: var(--text-color-light); }
@@ -63,7 +57,7 @@ categoryInput {
   border-radius: 16px; 
   margin-bottom: 1.5rem; 
   overflow: hidden; 
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed); }
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed) ease-in; }
 
 .card:hover { transform: translateY(-4px); 
    box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
@@ -101,19 +95,185 @@ categoryInput {
 .controls{
   text-align:center;
   margin:auto;
+  justify-content:center;
+  display:flex;
+  flex-wrap:wrap;
+  padding:1rem;
+  width:100%;
+}
+.controls input{
+  width:100%;
+  max-width:200px;
+  padding:0.5rem 0.5rem;
+  font-size:1rem;
+  border:1px solid black;
+  outline:none;
+  border-radius:20px;
 }
 .categoryInput{
   padding:10px;
   border-radius:15px;
   border:1px solid black;
   text-align:center;
-  
+  transition:.3s ease-in;
 }
 .category-buttons{
   margin:auto;
   text-align:center;
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5rem;
+  justify-content:center;
+  padding:1rem;
+  transition:0.5s ease-out;
+}
+.category-buttons buttons{
+  flex: 1 0 120px; 
+  min-width: 120px;        
+  max-width: 150px;       
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  border: none;
+  background-color: #fff;
+  color: #000;
+  white-space: nowrap;     /* Prevents text from wrapping */
+  transition:0.3s ease-in;
 }
 .copyright {
   text-align:center;
   font-size:5px;
+}
+.card small {
+  display: block;
+  color: #777;
+  font-size: 0.85rem;
+  margin: 0.25rem 0 0.5rem;
+}
+nav button.active {
+  background: #000;
+  color: #fff;
+  border-radius: 15px;
+  transition:.3s ease-out;
+}
+/* The switch - the box around the slider */
+.switch {
+  display: block;
+  --width-of-switch: 3.5em;
+  --height-of-switch: 2em;
+  /* size of sliding icon -- sun and moon */
+  --size-of-icon: 1.4em;
+  /* it is like a inline-padding of switch */
+  --slider-offset: 0.3em;
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+  position:relative;
+  align-items:right;
+  margin:auto;
+  margin-right:0.5rem;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f4f4f5;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon,1.4em);
+  width: var(--size-of-icon,1.4em);
+  border-radius: 20px;
+  left: var(--slider-offset,0.3em);
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg,#ff0080,#ff8c00 70%);
+  ;
+ transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #303136;
+}
+
+input:checked + .slider:before {
+  left: calc(100% - (var(--size-of-icon,1.4em) + var(--slider-offset,0.3em)));
+  background: #303136;
+  /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+}
+    /*dark Theme */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+body.dark-mode.card{
+  background:#1a1a1a;
+  color:white;
+}
+body.dark-mode.nav,body.dark-mode.header{
+  border-color:white;
+  background-color:white;
+}
+body.dark-mode nav button.active{
+  color:black;
+  background-color:white;
+}
+body.dark-mode .categoryInput{
+  border:1px solid white;
+  color:white;
+  background-color:black;
+  
+}
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+#categoryInput::placeholder {
+  color:black;
+  transition:0.3s ease-in;
+}
+#categoryInput::-webkit-input-placeholder {
+  color:black; /* Chrome, Safari */
+  transition:0.3s ease-in;
+}
+#categoryInput::-moz-placeholder {
+  color:black; /* Firefox */
+  transition:0.3s ease-in;
+}
+#categoryInput:-ms-input-placeholder {
+  color:black; /* Edge */
+  transition:0.3s ease-in;
+}
+.dark-mode #categoryInput::placeholder {
+  color:white; /* Lighter color for dark mode */
+}
+.dark-mode #categoryInput::-webkit-input-placeholder {
+  color:white; /* Chrome, Safari */
+}
+.dark-mode #categoryInput::-moz-placeholder{
+  color:white;
+}
+.dark-mode #categoryInput:-ms-input-placeholder {
+  color:white; /* Edge */
 }
